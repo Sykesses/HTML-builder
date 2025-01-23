@@ -14,4 +14,8 @@ stdin.on('data',(data) => {
   writeStream.write(data);
 });
 
+process.on('SIGINT', () => {
+  process.exit();
+});
+
 process.on('exit', () => stdout.write('Your message saved to file'));
